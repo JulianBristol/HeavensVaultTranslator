@@ -20,4 +20,50 @@ public class HVT_Translation {
         this.isConfirmed = isConfirmed;
         this.translationID = translationID;
     }
+
+    public String getAncientGlyph() {
+        return ancientGlyph;
+    }
+
+    public void setAncientGlyph(String ancientGlyph) {
+        this.ancientGlyph = ancientGlyph;
+    }
+
+    public String getTranslation() {
+        return translation;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
+    }
+
+    public int getTranslationID() {
+        return translationID;
+    }
+
+    public int getIsMarked() {
+        return isMarked;
+    }
+
+    public void setIsMarked(int isMarked) {
+        this.isMarked = isMarked;
+    }
+
+    public int getIsConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setIsConfirmed(int isConfirmed) {
+        this.isConfirmed = isConfirmed;
+    }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Ancient Glyphs: " + getAncientGlyph()).append("\n");
+        sb.append("Translation: " + getTranslation()).append("\n");
+        sb.append("TranslationID: " + getTranslationID()).append("\n");
+        sb.append("Is Confirmed?: "+ getIsConfirmed()).append("\n");
+        sb.append("Is Marked?: " + getIsMarked());
+        return sb.toString();
+    }
 }
