@@ -1,0 +1,24 @@
+@font-face {
+    -fx-font-family: "Ancient Runes";
+    src: url("main/resources/fonts/ancientrunes2.ttf");
+}
+.ancientGlyphBtns{
+    -fx-font-size: 59px;
+    -fx-font-family: "Ancient Runes";
+}
+.ancientGlyphTextField{
+    -fx-font-size: 40px;
+    -fx-font-family: "Ancient Runes";
+}
+#ancientGlyphView{
+    -fx-font-size: 55px;
+    -fx-font-family: "Ancient Runes";
+}
+.cell {
+    -fx-font-size: 20px;
+    -fx-alignment: center;
+}
+#col_AncientGlyphs.cell {
+    -fx-font-size: 50px;
+    -fx-font-family: "Ancient Runes";
+}
