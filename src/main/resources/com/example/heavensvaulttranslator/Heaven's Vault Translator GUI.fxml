@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<VBox fx:id="HVApplicationVBox" prefHeight="967.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.heavensvaulttranslator.HeavensVaultController">
+    <MenuBar prefWidth="676.0" VBox.vgrow="NEVER">
+        <menus>
+            <Menu mnemonicParsing="false" text="File">
+                <items>
+                    <MenuItem fx:id="closeApp" mnemonicParsing="false" text="Close"/>
+                    <MenuItem fx:id="revertApp" mnemonicParsing="false" text="Delete All Translations"/>
+                    <SeparatorMenuItem mnemonicParsing="false"/>
+                    <MenuItem fx:id="appPreferences" mnemonicParsing="false" text="Preferences…"/>
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <items>
+                    <MenuItem fx:id="aboutApp" mnemonicParsing="false" text="About Heaven's Vault Translator"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+    <TabPane fx:id="tabPane" prefHeight="1054.0" prefWidth="1350.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="tab_NewTranslation" text="New Translation">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="940.0" prefWidth="1350.0">
+                        <children>
+                            <GridPane layoutX="25.0" layoutY="356.0" prefHeight="540.0" prefWidth="1300.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                </rowConstraints>
+                                <children>
+                                    <Button fx:id="btn_Semicolon" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text=";"/>
+                                    <Button fx:id="btn_DoubleQuote" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="&quot;" GridPane.columnIndex="1"/>
+                                    <Button fx:id="btn_CloseParenthesis" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text=")" GridPane.columnIndex="2"/>
+                                    <Button fx:id="btn_OpenParenthesis" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="(" GridPane.columnIndex="3"/>
+                                    <Button fx:id="btn_SingleQuote" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="'" GridPane.columnIndex="4"/>
+                                    <Button fx:id="btn_X" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="x" GridPane.columnIndex="5"/>
+                                    <Button fx:id="btn_Period" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="." GridPane.columnIndex="6"/>
+                                    <Button fx:id="btn_Colon" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text=":" GridPane.columnIndex="7"/>
+                                    <Button fx:id="btn_QuestionMark" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="?" GridPane.columnIndex="8"/>
+                                    <Button fx:id="btn_Comma" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="," GridPane.columnIndex="9"/>
+                                    <Button fx:id="btn_0" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="0" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_1" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="1" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_2" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="2" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_3" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="3" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_4" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="4" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_5" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="5" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_6" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="6" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_7" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="7" GridPane.columnIndex="7" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_8" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="8" GridPane.columnIndex="8" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_9" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="9" GridPane.columnIndex="9" GridPane.rowIndex="1"/>
+                                    <Button fx:id="btn_W" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="w" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_J" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="j" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_F" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="f" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_EqualSign" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_Z" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="z" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_T" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="t" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_V" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="v" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_H" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="h" GridPane.columnIndex="7" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_U" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="u" GridPane.columnIndex="8" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_Y" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="y" GridPane.columnIndex="9" GridPane.rowIndex="2"/>
+                                    <Button fx:id="btn_S" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="s" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_L" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="l" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_R" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="r" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_K" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="k" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_C" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="c" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_O" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="o" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_Q" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="q" GridPane.columnIndex="6" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_I" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="i" GridPane.columnIndex="7" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_P" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="p" GridPane.columnIndex="8" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_B" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="b" GridPane.columnIndex="9" GridPane.rowIndex="3"/>
+                                    <Button fx:id="btn_D" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="d" GridPane.rowIndex="4"/>
+                                    <Button fx:id="btn_E" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="e" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                                    <Button fx:id="btn_G" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="g" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                                    <Button fx:id="btn_N" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="n" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                                    <Button fx:id="btn_M" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="m" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+                                    <Button fx:id="btn_A" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
+                                            text="a" GridPane.columnIndex="5" GridPane.rowIndex="4"/>
+                                    <Button fx:id="btn_BackBtn" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="Back" GridPane.columnIndex="8"
+                                            GridPane.rowIndex="4">
+                                        <font>
+                                            <Font size="32.0"/>
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="btn_ClearBtn" mnemonicParsing="false" prefHeight="100.0"
+                                            prefWidth="122.0" text="Clear" GridPane.columnIndex="9"
+                                            GridPane.rowIndex="4">
+                                        <font>
+                                            <Font size="32.0"/>
+                                        </font>
+                                    </Button>
+                                </children>
+                            </GridPane>
+                            <TextField fx:id="ancientGlyphTranslation" alignment="CENTER" layoutX="33.0" layoutY="186.0"
+                                       maxHeight="-Infinity" prefHeight="150.0" prefWidth="900.0"
+                                       promptText="Enter Translation">
+                                <font>
+                                    <Font name="Papyrus" size="55.0"/>
+                                </font>
+                            </TextField>
+                            <TextField fx:id="ancientGlyphView" alignment="CENTER" editable="false" layoutX="33.0"
+                                       layoutY="21.0" maxHeight="-Infinity" prefHeight="150.0" prefWidth="900.0"
+                                       promptText="'u.)hi&quot;sii">
+                            </TextField>
+                            <CheckBox fx:id="confirmTranslation" layoutX="1158.0" layoutY="96.0" mnemonicParsing="false"
+                                      text="Confirmed Translation"/>
+                            <CheckBox fx:id="markTranslation" layoutX="972.0" layoutY="96.0" mnemonicParsing="false"
+                                      text="Mark Translation"/>
+                            <Button fx:id="submitTranslation" layoutX="1014.0" layoutY="249.0" mnemonicParsing="false"
+                                    prefHeight="75.0" prefWidth="214.0" text="Submit">
+                                <font>
+                                    <Font size="32.0"/>
+                                </font>
+                            </Button>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>
