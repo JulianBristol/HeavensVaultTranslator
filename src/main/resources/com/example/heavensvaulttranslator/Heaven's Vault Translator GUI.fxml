@@ -1,200 +1,431 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.CheckBox?>
-<VBox fx:id="HVApplicationVBox" prefHeight="967.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/19"
+<VBox fx:id="HVApplicationVBox" prefHeight="967.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.heavensvaulttranslator.HeavensVaultController">
     <MenuBar prefWidth="676.0" VBox.vgrow="NEVER">
-        <menus>
-            <Menu mnemonicParsing="false" text="File">
-                <items>
-                    <MenuItem fx:id="closeApp" mnemonicParsing="false" text="Close"/>
-                    <MenuItem fx:id="revertApp" mnemonicParsing="false" text="Delete All Translations"/>
-                    <SeparatorMenuItem mnemonicParsing="false"/>
-                    <MenuItem fx:id="appPreferences" mnemonicParsing="false" text="Preferences…"/>
-                </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-                <items>
-                    <MenuItem fx:id="aboutApp" mnemonicParsing="false" text="About Heaven's Vault Translator"/>
-                </items>
-            </Menu>
-        </menus>
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem fx:id="closeApp" mnemonicParsing="false" text="Close"/>
+            <MenuItem fx:id="revertApp" mnemonicParsing="false"  onAction="#onRevertOptionClick" text="Delete All Translations"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem fx:id="appPreferences" mnemonicParsing="false" text="Preferences…"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem fx:id="aboutApp" mnemonicParsing="false" text="About Heaven's Vault Translator"/>
+        </Menu>
     </MenuBar>
     <TabPane fx:id="tabPane" prefHeight="1054.0" prefWidth="1350.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-            <Tab fx:id="tab_NewTranslation" text="New Translation">
-                <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="940.0" prefWidth="1350.0">
-                        <children>
-                            <GridPane layoutX="25.0" layoutY="356.0" prefHeight="540.0" prefWidth="1300.0">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                </columnConstraints>
-                                <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                                </rowConstraints>
-                                <children>
-                                    <Button fx:id="btn_Semicolon" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text=";"/>
-                                    <Button fx:id="btn_DoubleQuote" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="&quot;" GridPane.columnIndex="1"/>
-                                    <Button fx:id="btn_CloseParenthesis" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text=")" GridPane.columnIndex="2"/>
-                                    <Button fx:id="btn_OpenParenthesis" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="(" GridPane.columnIndex="3"/>
-                                    <Button fx:id="btn_SingleQuote" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="'" GridPane.columnIndex="4"/>
-                                    <Button fx:id="btn_X" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="x" GridPane.columnIndex="5"/>
-                                    <Button fx:id="btn_Period" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="." GridPane.columnIndex="6"/>
-                                    <Button fx:id="btn_Colon" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text=":" GridPane.columnIndex="7"/>
-                                    <Button fx:id="btn_QuestionMark" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="?" GridPane.columnIndex="8"/>
-                                    <Button fx:id="btn_Comma" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="," GridPane.columnIndex="9"/>
-                                    <Button fx:id="btn_0" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="0" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_1" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="1" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_2" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="2" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_3" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="3" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_4" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="4" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_5" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="5" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_6" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="6" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_7" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="7" GridPane.columnIndex="7" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_8" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="8" GridPane.columnIndex="8" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_9" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="9" GridPane.columnIndex="9" GridPane.rowIndex="1"/>
-                                    <Button fx:id="btn_W" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="w" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_J" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="j" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_F" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="f" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_EqualSign" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_Z" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="z" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_T" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="t" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_V" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="v" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_H" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="h" GridPane.columnIndex="7" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_U" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="u" GridPane.columnIndex="8" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_Y" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="y" GridPane.columnIndex="9" GridPane.rowIndex="2"/>
-                                    <Button fx:id="btn_S" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="s" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_L" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="l" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_R" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="r" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_K" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="k" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_C" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="c" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_O" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="o" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_Q" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="q" GridPane.columnIndex="6" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_I" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="i" GridPane.columnIndex="7" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_P" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="p" GridPane.columnIndex="8" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_B" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="b" GridPane.columnIndex="9" GridPane.rowIndex="3"/>
-                                    <Button fx:id="btn_D" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="d" GridPane.rowIndex="4"/>
-                                    <Button fx:id="btn_E" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="e" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-                                    <Button fx:id="btn_G" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="g" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-                                    <Button fx:id="btn_N" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="n" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
-                                    <Button fx:id="btn_M" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="m" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
-                                    <Button fx:id="btn_A" mnemonicParsing="false" prefHeight="100.0" prefWidth="122.0"
-                                            text="a" GridPane.columnIndex="5" GridPane.rowIndex="4"/>
-                                    <Button fx:id="btn_BackBtn" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="Back" GridPane.columnIndex="8"
-                                            GridPane.rowIndex="4">
-                                        <font>
-                                            <Font size="32.0"/>
-                                        </font>
-                                    </Button>
-                                    <Button fx:id="btn_ClearBtn" mnemonicParsing="false" prefHeight="100.0"
-                                            prefWidth="122.0" text="Clear" GridPane.columnIndex="9"
-                                            GridPane.rowIndex="4">
-                                        <font>
-                                            <Font size="32.0"/>
-                                        </font>
-                                    </Button>
-                                </children>
-                            </GridPane>
-                            <TextField fx:id="ancientGlyphTranslation" alignment="CENTER" layoutX="33.0" layoutY="186.0"
-                                       maxHeight="-Infinity" prefHeight="150.0" prefWidth="900.0"
-                                       promptText="Enter Translation">
-                                <font>
-                                    <Font name="Papyrus" size="55.0"/>
-                                </font>
-                            </TextField>
-                            <TextField fx:id="ancientGlyphView" alignment="CENTER" editable="false" layoutX="33.0"
-                                       layoutY="21.0" maxHeight="-Infinity" prefHeight="150.0" prefWidth="900.0"
-                                       promptText="'u.)hi&quot;sii">
-                            </TextField>
-                            <CheckBox fx:id="confirmTranslation" layoutX="1158.0" layoutY="96.0" mnemonicParsing="false"
-                                      text="Confirmed Translation"/>
-                            <CheckBox fx:id="markTranslation" layoutX="972.0" layoutY="96.0" mnemonicParsing="false"
-                                      text="Mark Translation"/>
-                            <Button fx:id="submitTranslation" layoutX="1014.0" layoutY="249.0" mnemonicParsing="false"
-                                    prefHeight="75.0" prefWidth="214.0" text="Submit">
-                                <font>
-                                    <Font size="32.0"/>
-                                </font>
-                            </Button>
-                        </children>
-                    </AnchorPane>
-                </content>
-            </Tab>
-        </tabs>
+        <Tab fx:id="tab_NewTranslation" text="New Translation">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="940.0" prefWidth="1350.0">
+                <GridPane layoutX="25.0" layoutY="356.0" prefHeight="540.0" prefWidth="1300.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <Button fx:id="btn_Semicolon" mnemonicParsing="false" onAction="#onSemicolonButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text=";" />
+                    <Button fx:id="btn_DoubleQuote" mnemonicParsing="false" onAction="#onDoubleQuotesButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="&quot;" GridPane.columnIndex="1" />
+                    <Button fx:id="btn_CloseParenthesis" mnemonicParsing="false" onAction="#onCloseParenthesisButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text=")" GridPane.columnIndex="2" />
+                    <Button fx:id="btn_OpenParenthesis" mnemonicParsing="false" onAction="#onOpenParenthesisButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="(" GridPane.columnIndex="3" />
+                    <Button fx:id="btn_SingleQuote" mnemonicParsing="false" onAction="#onSingleQuoteButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="'" GridPane.columnIndex="4" />
+                    <Button fx:id="btn_Period" mnemonicParsing="false" onAction="#onPeriodButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="." GridPane.columnIndex="6" />
+                    <Button fx:id="btn_Colon" mnemonicParsing="false" onAction="#onColonButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text=":" GridPane.columnIndex="7" />
+                    <Button fx:id="btn_QuestionMark" mnemonicParsing="false" onAction="#onQuestionMarkButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="?" GridPane.columnIndex="8" />
+                    <Button fx:id="btn_Comma" mnemonicParsing="false" onAction="#onCommaButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="," GridPane.columnIndex="9" />
+                    <Button fx:id="btn_EqualSign" mnemonicParsing="false" onAction="#onEqualButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="=" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_0" mnemonicParsing="false" onAction="#on0ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="0" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_1" mnemonicParsing="false" onAction="#on1ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_2" mnemonicParsing="false" onAction="#on2ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="2" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_3" mnemonicParsing="false" onAction="#on3ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="3" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_4" mnemonicParsing="false" onAction="#on4ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="4" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_5" mnemonicParsing="false" onAction="#on5ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="5" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_6" mnemonicParsing="false" onAction="#on6ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="6" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_7" mnemonicParsing="false" onAction="#on7ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="7" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_8" mnemonicParsing="false" onAction="#on8ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="8" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_9" mnemonicParsing="false" onAction="#on9ButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="9" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_W" mnemonicParsing="false" onAction="#onWButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="w" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_X" mnemonicParsing="false" onAction="#onXButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="x" GridPane.columnIndex="5" />
+                    <Button fx:id="btn_J" mnemonicParsing="false" onAction="#onJButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="j" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_F" mnemonicParsing="false" onAction="#onFButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="f" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_Z" mnemonicParsing="false" onAction="#onZButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="z" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_T" mnemonicParsing="false" onAction="#onTButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="t" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_V" mnemonicParsing="false" onAction="#onVButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="v" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_H" mnemonicParsing="false" onAction="#onHButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="h" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_U" mnemonicParsing="false" onAction="#onUButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="u" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_Y" mnemonicParsing="false" onAction="#onYButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="y" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_S" mnemonicParsing="false" onAction="#onSButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="s" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_L" mnemonicParsing="false" onAction="#onLButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="l" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_R" mnemonicParsing="false" onAction="#onRButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="r" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_K" mnemonicParsing="false" onAction="#onKButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="k" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_C" mnemonicParsing="false" onAction="#onCButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="c" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_O" mnemonicParsing="false" onAction="#onOButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="o" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_Q" mnemonicParsing="false" onAction="#onQButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="q" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_I" mnemonicParsing="false" onAction="#onIButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="i" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_P" mnemonicParsing="false" onAction="#onPButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="p" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_B" mnemonicParsing="false" onAction="#onBButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="b" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                    <Button fx:id="btn_D" mnemonicParsing="false" onAction="#onDButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="d" GridPane.rowIndex="4" />
+                    <Button fx:id="btn_E" mnemonicParsing="false" onAction="#onEButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="e" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Button fx:id="btn_G" mnemonicParsing="false" onAction="#onGButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="g" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                    <Button fx:id="btn_N" mnemonicParsing="false" onAction="#onNButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="n" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                    <Button fx:id="btn_M" mnemonicParsing="false" onAction="#onMButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="m" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                    <Button fx:id="btn_A" mnemonicParsing="false" onAction="#onAButtonClick" prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns" text="a" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                    <Button fx:id="btn_BackBtn" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="100.0" prefWidth="122.0" text="Back" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                        <font>
+                            <Font size="32.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="btn_ClearBtn" mnemonicParsing="false" onAction="#onClearButtonClick" prefHeight="100.0" prefWidth="122.0" text="Clear" GridPane.columnIndex="9" GridPane.rowIndex="4">
+                        <font>
+                            <Font size="32.0" />
+                        </font>
+                    </Button>
+                </GridPane>
+                <TextField fx:id="ancientGlyphTranslation" alignment="CENTER" layoutX="33.0" layoutY="186.0" maxHeight="-Infinity" prefHeight="150.0" prefWidth="900.0" promptText="Enter Translation">
+                    <font>
+                        <Font name="Papyrus" size="55.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="ancientGlyphView" alignment="CENTER" editable="false" layoutX="33.0" layoutY="21.0" maxHeight="-Infinity" prefHeight="150.0" prefWidth="900.0" promptText="'u.)hi&quot;sii">
+                </TextField>
+                <CheckBox fx:id="confirmTranslation" layoutX="1158.0" layoutY="96.0" mnemonicParsing="false" text="Confirmed Translation" />
+                <CheckBox fx:id="markTranslation" layoutX="972.0" layoutY="96.0" mnemonicParsing="false" text="Mark Translation" />
+                <Button fx:id="cancelEditTranslation" layoutX="1014.0" layoutY="149.0" mnemonicParsing="false" onAction="#onCancelSubmitButtonClick" prefHeight="75.0" prefWidth="214.0" text="Cancel" visible="false">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Button>
+                <Button fx:id="submitTranslation" layoutX="1014.0" layoutY="249.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="75.0" prefWidth="214.0" text="Submit">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Button>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_Translations" text="Translations">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TextField fx:id="textField_SearchBar" layoutX="47.0" layoutY="31.0" prefHeight="78.0"
+                           prefWidth="314.0" promptText="Enter a phrase to search">
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </TextField>
+                <TextField fx:id="textField_SearchBarAncient" layoutX="47.0" layoutY="31.0" prefHeight="78.0"
+                           prefWidth="314.0" styleClass="ancientGlyphTextField" visible="false"
+                           promptText="'u.)hi&quot;sii">
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </TextField>
+                <TextField fx:id="textField_SearchBarAncientPrompt" layoutX="47.0" layoutY="31.0"
+                           prefHeight="78.0" prefWidth="314.0" onAction="#onAncientPromptClick"
+                           onKeyPressed="#onAncientPromptClick" onMouseClicked="#onAncientPromptClick"
+                           styleClass="ancientGlyphTextField" visible="false" promptText="'u.)hi&quot;sii">
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </TextField>
+                <Button fx:id="btn_Search" layoutX="532.0" layoutY="41.0" mnemonicParsing="false"
+                        onAction="#onSearchButtonClick" prefHeight="57.0" prefWidth="110.0" text="Search">
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </Button>
+                <CheckBox fx:id="checkBox_Confirmed" layoutX="377.0" layoutY="38.0" mnemonicParsing="false"
+                          text="Confirmed">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </CheckBox>
+                <CheckBox fx:id="checkBox_Marked" layoutX="377.0" layoutY="74.0" mnemonicParsing="false"
+                          text="Marked">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </CheckBox>
+                <AnchorPane fx:id="anchorPane_AncientScript" layoutX="30.0" layoutY="200.0" prefHeight="200.0"
+                            prefWidth="200.0" visible="false">
+                    <GridPane prefHeight="540.0" prefWidth="1300.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+                        <Button fx:id="btn_Semicolon1" mnemonicParsing="false"
+                                onAction="#onSemicolonButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                styleClass="ancientGlyphBtns" text=";"/>
+                        <Button fx:id="btn_DoubleQuote1" mnemonicParsing="false"
+                                onAction="#onDoubleQuotesButtonClick" prefHeight="100.0"
+                                prefWidth="122.0" styleClass="ancientGlyphBtns" text="&quot;"
+                                GridPane.columnIndex="1"/>
+                        <Button fx:id="btn_CloseParenthesis1" mnemonicParsing="false"
+                                onAction="#onCloseParenthesisButtonClick" prefHeight="100.0"
+                                prefWidth="122.0" styleClass="ancientGlyphBtns" text=")"
+                                GridPane.columnIndex="2"/>
+                        <Button fx:id="btn_OpenParenthesis1" mnemonicParsing="false"
+                                onAction="#onOpenParenthesisButtonClick" prefHeight="100.0"
+                                prefWidth="122.0" styleClass="ancientGlyphBtns" text="("
+                                GridPane.columnIndex="3"/>
+                        <Button fx:id="btn_SingleQuote1" mnemonicParsing="false"
+                                onAction="#onSingleQuoteButtonClick" prefHeight="100.0"
+                                prefWidth="122.0" styleClass="ancientGlyphBtns" text="'"
+                                GridPane.columnIndex="4"/>
+                        <Button fx:id="btn_X1" mnemonicParsing="false" onAction="#onXButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="x" GridPane.columnIndex="5"/>
+                        <Button fx:id="btn_Period1" mnemonicParsing="false"
+                                onAction="#onPeriodButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                styleClass="ancientGlyphBtns" text="." GridPane.columnIndex="6"/>
+                        <Button fx:id="btn_Colon1" mnemonicParsing="false"
+                                onAction="#onColonButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                styleClass="ancientGlyphBtns" text=":" GridPane.columnIndex="7"/>
+                        <Button fx:id="btn_QuestionMark1" mnemonicParsing="false"
+                                onAction="#onQuestionMarkButtonClick" prefHeight="100.0"
+                                prefWidth="122.0" styleClass="ancientGlyphBtns" text="?"
+                                GridPane.columnIndex="8"/>
+                        <Button fx:id="btn_Comma1" mnemonicParsing="false"
+                                onAction="#onCommaButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                styleClass="ancientGlyphBtns" text="," GridPane.columnIndex="9"/>
+                        <Button fx:id="btn_01" mnemonicParsing="false" onAction="#on0ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="0" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_11" mnemonicParsing="false" onAction="#on1ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="1" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_21" mnemonicParsing="false" onAction="#on2ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="2" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_31" mnemonicParsing="false" onAction="#on3ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="3" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_41" mnemonicParsing="false" onAction="#on4ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="4" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_51" mnemonicParsing="false" onAction="#on5ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="5" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_61" mnemonicParsing="false" onAction="#on6ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="6" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_71" mnemonicParsing="false" onAction="#on7ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="7" GridPane.columnIndex="7" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_81" mnemonicParsing="false" onAction="#on8ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="8" GridPane.columnIndex="8" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_91" mnemonicParsing="false" onAction="#on9ButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="9" GridPane.columnIndex="9" GridPane.rowIndex="1"/>
+                        <Button fx:id="btn_W1" mnemonicParsing="false" onAction="#onWButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="w" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_J1" mnemonicParsing="false" onAction="#onJButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="j" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_F1" mnemonicParsing="false" onAction="#onFButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="f" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_EqualSign1" mnemonicParsing="false"
+                                onAction="#onEqualButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                styleClass="ancientGlyphBtns" text="=" GridPane.columnIndex="3"
+                                GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_Z1" mnemonicParsing="false" onAction="#onZButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="z" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_T1" mnemonicParsing="false" onAction="#onTButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="t" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_V1" mnemonicParsing="false" onAction="#onVButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="v" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_H1" mnemonicParsing="false" onAction="#onHButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="h" GridPane.columnIndex="7" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_U1" mnemonicParsing="false" onAction="#onUButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="u" GridPane.columnIndex="8" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_Y1" mnemonicParsing="false" onAction="#onYButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="y" GridPane.columnIndex="9" GridPane.rowIndex="2"/>
+                        <Button fx:id="btn_S1" mnemonicParsing="false" onAction="#onSButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="s" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_L1" mnemonicParsing="false" onAction="#onLButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="l" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_R1" mnemonicParsing="false" onAction="#onRButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="r" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_K1" mnemonicParsing="false" onAction="#onKButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="k" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_C1" mnemonicParsing="false" onAction="#onCButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="c" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_O1" mnemonicParsing="false" onAction="#onOButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="o" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_Q1" mnemonicParsing="false" onAction="#onQButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="q" GridPane.columnIndex="6" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_I1" mnemonicParsing="false" onAction="#onIButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="i" GridPane.columnIndex="7" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_P1" mnemonicParsing="false" onAction="#onPButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="p" GridPane.columnIndex="8" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_B1" mnemonicParsing="false" onAction="#onBButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="b" GridPane.columnIndex="9" GridPane.rowIndex="3"/>
+                        <Button fx:id="btn_D1" mnemonicParsing="false" onAction="#onDButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="d" GridPane.rowIndex="4"/>
+                        <Button fx:id="btn_E1" mnemonicParsing="false" onAction="#onEButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="e" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Button fx:id="btn_G1" mnemonicParsing="false" onAction="#onGButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="g" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                        <Button fx:id="btn_N1" mnemonicParsing="false" onAction="#onNButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="n" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                        <Button fx:id="btn_M1" mnemonicParsing="false" onAction="#onMButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="m" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+                        <Button fx:id="btn_A1" mnemonicParsing="false" onAction="#onAButtonClick"
+                                prefHeight="100.0" prefWidth="122.0" styleClass="ancientGlyphBtns"
+                                text="a" GridPane.columnIndex="5" GridPane.rowIndex="4"/>
+                        <Button fx:id="btn_BackBtn1" mnemonicParsing="false"
+                                onAction="#onBackButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                text="Back" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                            <font>
+                                <Font size="32.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="btn_ClearBtn1" mnemonicParsing="false"
+                                onAction="#onClearButtonClick" prefHeight="100.0" prefWidth="122.0"
+                                text="Clear" GridPane.columnIndex="9" GridPane.rowIndex="4">
+                            <font>
+                                <Font size="32.0"/>
+                            </font>
+                        </Button>
+                    </GridPane>
+                </AnchorPane>
+                <TableView fx:id="tableView_Translations" layoutX="47.0" layoutY="169.0"
+                           onMouseClicked="#translationOptions" prefHeight="709.0" prefWidth="1266.0">
+                    <columns>
+                        <TableColumn fx:id="col_AncientGlyphs" prefWidth="258.39997482299805"
+                                     text="Ancient Glyphs"/>
+                        <TableColumn fx:id="col_Translations" minWidth="0.0" prefWidth="268.79998779296875"
+                                     text="Translation"/>
+                        <TableColumn fx:id="col_Confirmed" prefWidth="152.79998779296875" text="Is Confirmed"/>
+                        <TableColumn fx:id="col_Marked" prefWidth="75.0" text="Is Marked"/>
+                    </columns>
+                </TableView>
+                <Pane fx:id="pane_togglePane" layoutX="694.0" layoutY="17.0" prefHeight="132.0"
+                      prefWidth="622.0" visible="false">
+                    <Button fx:id="pane_CancelBtn" layoutX="175.0" layoutY="55.0" mnemonicParsing="false"
+                            onAction="#onCancelButtonClick" prefHeight="63.0" prefWidth="110.0"
+                            text="Cancel">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Button>
+                    <Button fx:id="pane_DeleteBtn" layoutX="481.0" layoutY="55.0" mnemonicParsing="false"
+                            onAction="#onDeleteButtonClick" prefHeight="63.0" prefWidth="110.0"
+                            text="Delete">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Button>
+                    <Button fx:id="pane_EditBtn" layoutX="327.0" layoutY="55.0" mnemonicParsing="false"
+                            onAction="#onEditButtonClick" prefHeight="63.0" prefWidth="110.0" text="Edit">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Button>
+                    <Label fx:id="pane_EditField" layoutX="100.0" text="Edit ...">
+                        <font>
+                            <Font size="25.0"/>
+                        </font>
+                    </Label>
+                </Pane>
+
+
+                <Pane fx:id="pane_DeletePane" layoutX="694.0" layoutY="17.0" prefHeight="132.0"
+                      prefWidth="622.0" visible="false">
+                    <Label fx:id="pane_DeleteLabel" layoutX="100.0"
+                           text="Are you sure you want to delete it?">
+                        <font>
+                            <Font size="25.0"/>
+                        </font>
+                    </Label>
+                    <Button fx:id="pane_ConfirmDeleteBtn" layoutX="175.0" layoutY="55.0"
+                            mnemonicParsing="false" onAction="#onConfirmDeleteButtonClick" prefHeight="63.0"
+                            prefWidth="110.0" text="Yes">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Button>
+                    <Button fx:id="pane_CancelDeleteBtn" layoutX="481.0" layoutY="55.0"
+                            mnemonicParsing="false" onAction="#onCancelDeleteButtonClick" prefHeight="63.0"
+                            prefWidth="110.0" text="No">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Button>
+                </Pane>
+                <ToggleButton fx:id="tog_Btn_AncientScript" layoutX="56.0" layoutY="123.0"
+                              onAction="#onToggleAncientScriptBTN" mnemonicParsing="false"
+                              text="Show Ancient Script"/>
+            </AnchorPane>
+        </Tab>
     </TabPane>
 </VBox>
